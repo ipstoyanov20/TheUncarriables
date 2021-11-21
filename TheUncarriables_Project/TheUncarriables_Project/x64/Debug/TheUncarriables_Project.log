@@ -1,0 +1,23 @@
+﻿  main.cpp
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(31,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(71,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(72,13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(73,14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(77,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(80,20): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(98,17): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(99,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(106,17): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(107,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(144,14): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(145,21): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(146,22): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(147,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(148,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(149,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(167,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(168,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(169,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(170,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(171,16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  TheUncarriables_Project.vcxproj -> C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\x64\Debug\TheUncarriables_Project.exe
