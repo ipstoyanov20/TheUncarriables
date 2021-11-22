@@ -2,110 +2,124 @@
 #include<iostream>
 #include<stdlib.h>
 #include<cmath>
-#include<stdlib.h>
 #include<time.h>
 #include<SDL_image.h> // Here we can use images in SDL
 using namespace std;
 
-SDL_Rect rect;
+SDL_Rect diver;
+SDL_Event SDLevent;
+SDL_Renderer* renderer;
+SDL_Window* window;
+SDL_Surface* surfaceOfBubbleLeft;
+SDL_Texture* textureOfBubbleLeft;
+SDL_Surface* surfaceOfBubbleRight;
+SDL_Texture* textureOfBubbleRight;
+SDL_Rect point;
+SDL_Rect bubbleLeft;
+SDL_Rect bubbleRight;
 
-
-
-int main(int argc, char* argv[])
+//Useful variables
+float LeftPosOfDiver;
+float PosOfPoint;
+float RightPosOfDiver;
+float counter = 0;
+float y = 0;
+float x = 0;
+float BubbleLeftY;
+float BubbleRightY;
+bool flag = true;
+void CreateWindow()
 {
-	SDL_Init(SDL_INIT_VIDEO);
-
-	SDL_Renderer* renderer;
-	SDL_Window* window;
-	SDL_Surface* surface;
-	SDL_Texture* texture;
-	SDL_Surface* surface2;
-	SDL_Texture* texture2;
+	
 	SDL_CreateWindowAndRenderer(700, 500, 0, &window, &renderer);
+}
+void SetThePoint()
+{
+	point.x = 100;
 
-	bool flag = true;
-	SDL_Event e;
+	point.y = 500;
 
-	SDL_RenderClear(renderer);
+	point.h = 20;
 
-	srand(time(0));
-	SDL_Rect rect2;
-	rect2.x = 100;
+	point.w = 20;
+}
+void SetBubbleLeft()
+{
 
-	rect2.y = 500;
+	bubbleLeft.x = 20;
 
-	rect2.h = 20;
+	bubbleLeft.y = 500;
 
-	rect2.w = 20;
+	bubbleLeft.h = 50;
 
+	bubbleLeft.w = 50;
+}
 
-	SDL_Rect rect3;
-	rect3.x = 20;
+void SetBubbleRight()
+{
 
-	rect3.y = 500;
+	bubbleRight.x = 620;
 
-	rect3.h = 50;
+	bubbleRight.y = 500;
 
-	rect3.w = 50;
+	bubbleRight.h = 50;
 
-	SDL_Rect rect4;
-	rect4.x = 620;
+	bubbleRight.w = 50;
+}
+void SetTextureAndSurfaceOfBubbleleft()
+{
+	surfaceOfBubbleLeft = IMG_Load("bubble.png");
+	textureOfBubbleLeft = SDL_CreateTextureFromSurface(renderer, surfaceOfBubbleLeft);
+}
+void SetTextureAndSurfaceOfBubbleright()
+{
+	surfaceOfBubbleRight = IMG_Load("bubble2.png");
+	textureOfBubbleRight = SDL_CreateTextureFromSurface(renderer, surfaceOfBubbleRight);
+}
+void SetDiver()
+{
+	diver.h = 10;
+	diver.w = 10;
+	diver.y = 50;
 
-	rect4.y = 500;
+	diver.x = 200;
+}
+void MainLoop()
+{
+	LeftPosOfDiver = diver.x;
+	PosOfPoint = point.y;
+	RightPosOfDiver = diver.x;
 
-	rect4.h = 50;
-
-	rect4.w = 50;
-
-	surface = IMG_Load("bubble.png");
-	texture = SDL_CreateTextureFromSurface(renderer, surface);
-
-	surface2 = IMG_Load("bubble2.png");
-	texture2 = SDL_CreateTextureFromSurface(renderer, surface2);
-
-	rect.h = 10;
-	rect.w = 10;
-	rect.y = 50;
-
-	rect.x = 200;
-	float help2 = rect.x;
-	float help = rect2.y;
-	float help3 = rect.x;
-	float counter = 0;
-	float y = 0;
-	float x = 0;
-	float helpbubble = rect3.y;
-	int xB;
-	int xB2;
-	float helpBubble2 = rect4.y;
-
+	BubbleLeftY = bubbleLeft.y;
+	BubbleRightY = bubbleRight.y;
 	while (flag)
 	{
+		
+		SDL_PollEvent(&SDLevent);
 
-		SDL_PollEvent(&e);
-
-		if (e.type == SDL_QUIT || rect.x == 0 || rect.x == 700)
+		if (SDLevent.type == SDL_QUIT || diver.x == 0 || diver.x == 700)
 		{
 			flag = false;
 			cout << "Wrong";
+
 		}
-		if (e.type == SDL_KEYDOWN)
+		if (SDLevent.type == SDL_KEYDOWN)
 		{
-			switch (e.key.keysym.sym)
+			switch (SDLevent.key.keysym.sym)
 			{
 			case SDLK_LEFT:
 			{
-				help2 -= 0.3;
-				rect.x = help2;
-				help3 = help2;
+				LeftPosOfDiver -= 0.3;
+				diver.x = LeftPosOfDiver;
+				RightPosOfDiver = LeftPosOfDiver;
 				goto there;
 				break;
 			}
 			case SDLK_RIGHT:
 			{
-				help3 += 0.3;
-				rect.x = help3;
-				help2 = help3;
+				RightPosOfDiver += 0.3;
+				diver.x = RightPosOfDiver;
+				LeftPosOfDiver = RightPosOfDiver;
 				goto there;
 				break;
 			}
@@ -121,57 +135,75 @@ int main(int argc, char* argv[])
 	there:
 
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
-		SDL_RenderFillRect(renderer, &rect2);
+		SDL_RenderFillRect(renderer, &point);//set drawing a point
 
 
 		SDL_SetRenderDrawColor(renderer, 102, 255, 51, 255);
-		SDL_RenderFillRect(renderer, &rect);
+		SDL_RenderFillRect(renderer, &diver);// set drawing a diver
 
-		SDL_RenderCopy(renderer, texture, 0, &rect3);
+		SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
+		//Copy textureOfBubbleLeft in bubbleLeft
 
-
-		SDL_RenderCopy(renderer, texture2, 0, &rect4);
-
+		SDL_RenderCopy(renderer, textureOfBubbleRight, 0, &bubbleRight);
+		//Copy textureOfBubbleRight in bubbleRight
 
 		SDL_SetRenderDrawColor(renderer, 51, 153, 255, 255);
-		SDL_RenderPresent(renderer);
-		SDL_RenderClear(renderer);
+		SDL_RenderPresent(renderer);//present renderer and visualisation of all shapes
+		SDL_RenderClear(renderer);//Clear renderer for next position of all shapes
 
 
 
 
 
-		help -= 0.1;
-		helpbubble -= 0.07;
-		helpBubble2 -= 0.05;
-		rect3.y = helpbubble;
-		rect2.y = help;
-		rect4.y = helpBubble2;
+		PosOfPoint -= 0.1;
+		BubbleLeftY -= 0.07;
+		BubbleRightY -= 0.05;
+		bubbleLeft.y = BubbleLeftY;
+		point.y = PosOfPoint;
+		bubbleRight.y = BubbleRightY;
 
 
-		if (rect3.y < -60)
+		if (bubbleLeft.y < -60)
 		{
-			helpbubble = 500;
-			xB = rand() % 10 + 20;
-			rect3.x = xB;
-		}
-		if (rect4.y < -60)
-		{
-			helpBubble2 = 500;
-			xB2 = rand() % 10 + 620;
-			rect4.x = xB2;
-		}
+			BubbleLeftY = 500;
 
-		if (((round(rect2.y) - round(rect.y) >= -15) && (round(rect2.y) - round(rect.y) <= 15) && (round(rect2.x) - round(rect.x) <= 15) && (round(rect2.x) - round(rect.x) >= -15)) || rect2.y < -30)
+		}
+		if (bubbleRight.y < -60)
+		{
+			BubbleRightY = 500;
+
+		}
+		//Find collusion and set random position of point
+		if (((round(point.y) - round(diver.y) >= -15) && (round(point.y) - round(diver.y) <= 15) && (round(point.x) - round(diver.x) <= 15) && (round(point.x) - round(diver.x) >= -15)) || point.y < -30)
 		{
 			y = rand() % 20 + 500;
 			x = rand() % 340 + 50;
-			rect2.x = x;
-			rect2.y = y;
-			help = rect2.y;
+			point.x = x;
+			point.y = y;
+			PosOfPoint = point.y;
 
 		}
 	}
+}
+void Setting()
+{
+	SetThePoint();
+	SetDiver();
+	SetBubbleLeft();
+	SetBubbleRight();
+
+
+
+	SetTextureAndSurfaceOfBubbleleft();
+	SetTextureAndSurfaceOfBubbleright();
+}
+int main(int argc, char* argv[])
+{
+	SDL_Init(SDL_INIT_EVERYTHING);
+
+	CreateWindow();
+	Setting();
+	MainLoop();
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
