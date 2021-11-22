@@ -2,7 +2,7 @@
 <table>
 <tr>
   <td>SDL_renderer*</td>
-  <td><a href = "" target = "_blank"></a></td>
+  <td><a href = "https://wiki.libsdl.org/SDL_Renderer" target = "_blank">https://wiki.libsdl.org/SDL_Renderer</a></td>
 </tr>
 <tr>
   <td>SDL_renderer*</td>
