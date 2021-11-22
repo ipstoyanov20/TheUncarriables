@@ -1,6 +1,27 @@
 # Some SDL Functions:
 <table>
 <tr>
-  <td>Hello</td>
+  <td>Function</td>
+  <td>Explain</td>
+</tr>
+<tr>
+  <td>Function</td>
+  <td>Explain</td>
+</tr>
+ <tr>
+  <td>Function</td>
+  <td>Explain</td>
+</tr>
+ <tr>
+  <td>Function</td>
+  <td>Explain</td>
+</tr>
+ <tr>
+  <td>Function</td>
+  <td>Explain</td>
+</tr>
+  <tr>
+  <td>Function</td>
+  <td>Explain</td>
 </tr>
 </table>
