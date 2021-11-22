@@ -2,26 +2,26 @@
 <table>
 <tr>
   <td>SDL_renderer*</td>
-  <td>A structure that contains a rendering state.</td>
+  <td><a href = "" target = "_blank"></a></td>
 </tr>
 <tr>
-  <td>SDL_Window* </td>
-  <td>A structure that contains data for window.</td>
+  <td>SDL_renderer*</td>
+  <td><a href = "" target = "_blank"></a></td>
+</tr>
+<tr>
+  <td>SDL_renderer*</td>
+  <td><a href = "" target = "_blank"></a></td>
+</tr>
+<tr>
+  <td>SDL_renderer*</td>
+  <td><a href = "" target = "_blank"></a></td>
 </tr>
  <tr>
-  <td>Function</td>
-  <td>Explain</td>
+  <td>SDL_renderer*</td>
+  <td><a href = "" target = "_blank"></a></td>
 </tr>
  <tr>
-  <td>Function</td>
-  <td>Explain</td>
-</tr>
- <tr>
-  <td>Function</td>
-  <td>Explain</td>
-</tr>
-  <tr>
-  <td>Function</td>
-  <td>Explain</td>
+  <td>SDL_renderer*</td>
+  <td><a href = "" target = "_blank"></a></td>
 </tr>
 </table>
