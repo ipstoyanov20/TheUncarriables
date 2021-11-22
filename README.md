@@ -1,4 +1,4 @@
-# Some SDL Functions:
+# About SDL:
 <table>
 <tr>
   <td>Function</td>
