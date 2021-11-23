@@ -14,6 +14,10 @@ SDL_Surface* surfaceOfBubbleLeft;
 SDL_Texture* textureOfBubbleLeft;
 SDL_Surface* surfaceOfBubbleRight;
 SDL_Texture* textureOfBubbleRight;
+SDL_Surface* surfaceOfDiver;
+SDL_Texture* textureOfDiver;
+SDL_Surface* surfaceOfPoint;
+SDL_Texture* textureOfPoint;
 SDL_Rect point;
 SDL_Rect bubbleLeft;
 SDL_Rect bubbleRight;
@@ -28,10 +32,12 @@ float x = 0;
 float BubbleLeftY;
 float BubbleRightY;
 bool flag = true;
+
 void CreateWindow()
 {
 	
 	SDL_CreateWindowAndRenderer(700, 500, 0, &window, &renderer);
+	SDL_SetWindowTitle(window, "TheUncarriables");
 }
 void SetThePoint()
 {
@@ -39,9 +45,9 @@ void SetThePoint()
 
 	point.y = 500;
 
-	point.h = 20;
+	point.h = 30;
 
-	point.w = 20;
+	point.w = 30;
 }
 void SetBubbleLeft()
 {
@@ -66,6 +72,16 @@ void SetBubbleRight()
 
 	bubbleRight.w = 50;
 }
+void SetTextureAndSurfaceOfPoint()
+{
+	surfaceOfPoint = IMG_Load("airTank.png");
+	textureOfPoint = SDL_CreateTextureFromSurface(renderer, surfaceOfPoint);
+}
+void SetTextureAndSurfaceOfDiver()
+{
+	surfaceOfDiver = IMG_Load("diver.png");
+	textureOfDiver = SDL_CreateTextureFromSurface(renderer, surfaceOfDiver);
+}
 void SetTextureAndSurfaceOfBubbleleft()
 {
 	surfaceOfBubbleLeft = IMG_Load("bubble.png");
@@ -78,8 +94,8 @@ void SetTextureAndSurfaceOfBubbleright()
 }
 void SetDiver()
 {
-	diver.h = 10;
-	diver.w = 10;
+	diver.h = 50;
+	diver.w = 30;
 	diver.y = 50;
 
 	diver.x = 200;
@@ -107,22 +123,30 @@ void MainLoop()
 		{
 			switch (SDLevent.key.keysym.sym)
 			{
-			case SDLK_LEFT:
-			{
-				LeftPosOfDiver -= 0.3;
-				diver.x = LeftPosOfDiver;
-				RightPosOfDiver = LeftPosOfDiver;
-				goto there;
-				break;
-			}
-			case SDLK_RIGHT:
-			{
-				RightPosOfDiver += 0.3;
-				diver.x = RightPosOfDiver;
-				LeftPosOfDiver = RightPosOfDiver;
-				goto there;
-				break;
-			}
+				case SDLK_LEFT:
+				{
+					LeftPosOfDiver -= 0.3;
+					diver.x = LeftPosOfDiver;
+					RightPosOfDiver = LeftPosOfDiver;
+
+					
+
+
+					goto there;
+					break;
+				}
+				case SDLK_RIGHT:
+				{
+					RightPosOfDiver += 0.3;
+					diver.x = RightPosOfDiver;
+					LeftPosOfDiver = RightPosOfDiver;
+
+				
+				
+
+					goto there;
+					break;
+				}
 			}
 		}
 
@@ -134,13 +158,10 @@ void MainLoop()
 
 	there:
 
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 0);
-		SDL_RenderFillRect(renderer, &point);//set drawing a point
-
-
-		SDL_SetRenderDrawColor(renderer, 102, 255, 51, 255);
-		SDL_RenderFillRect(renderer, &diver);// set drawing a diver
-
+		SDL_RenderCopy(renderer, textureOfPoint, 0, &point);
+		//Copy textureOfPoint in point rectangle
+		SDL_RenderCopy(renderer, textureOfDiver, 0, &diver);
+		//Copy textureOfDiver in diver rectangle
 		SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
 		//Copy textureOfBubbleLeft in bubbleLeft
 
@@ -173,11 +194,11 @@ void MainLoop()
 			BubbleRightY = 500;
 
 		}
-		//Find collusion and set random position of point
-		if (((round(point.y) - round(diver.y) >= -15) && (round(point.y) - round(diver.y) <= 15) && (round(point.x) - round(diver.x) <= 15) && (round(point.x) - round(diver.x) >= -15)) || point.y < -30)
+		//Find collusion and set random position of the point
+		if (((round(point.y) - round(diver.y) >= -30) && (round(point.y) - round(diver.y) <= 40) && (round(point.x) - round(diver.x) <= 25) && (round(point.x) - round(diver.x) >= -25)) || point.y < -30)
 		{
 			y = rand() % 20 + 500;
-			x = rand() % 340 + 50;
+			x = rand() % 520 + 65;
 			point.x = x;
 			point.y = y;
 			PosOfPoint = point.y;
@@ -192,8 +213,8 @@ void Setting()
 	SetBubbleLeft();
 	SetBubbleRight();
 
-
-
+	SetTextureAndSurfaceOfPoint();
+	SetTextureAndSurfaceOfDiver();
 	SetTextureAndSurfaceOfBubbleleft();
 	SetTextureAndSurfaceOfBubbleright();
 }
