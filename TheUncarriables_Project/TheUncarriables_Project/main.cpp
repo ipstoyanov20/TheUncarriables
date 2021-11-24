@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<cmath>
 #include<time.h>
+#include<string>
 #include<SDL_image.h> // Here we can use images in SDL
 using namespace std;
 
@@ -26,12 +27,13 @@ SDL_Rect bubbleRight;
 float LeftPosOfDiver;
 float PosOfPoint;
 float RightPosOfDiver;
-float counter = 0;
 float y = 0;
 float x = 0;
 float BubbleLeftY;
 float BubbleRightY;
-bool flag = true;
+bool playing = true;
+float gameover = 800;
+
 
 void CreateWindow()
 {
@@ -74,7 +76,7 @@ void SetBubbleRight()
 }
 void SetTextureAndSurfaceOfPoint()
 {
-	surfaceOfPoint = IMG_Load("airTank.png");
+	surfaceOfPoint = IMG_Load("shield.png");
 	textureOfPoint = SDL_CreateTextureFromSurface(renderer, surfaceOfPoint);
 }
 void SetTextureAndSurfaceOfDiver()
@@ -100,6 +102,22 @@ void SetDiver()
 
 	diver.x = 200;
 }
+bool GameOver(float gameover)
+{
+	if (gameover <= 0)
+	{
+		playing = false;
+		return playing;
+	}
+}
+bool FindCollusion()
+{
+	if (((round(point.y) - round(diver.y) >= -40) && (round(point.y) - round(diver.y) <= 40) && (round(point.x) - round(diver.x) <= 30) && (round(point.x) - round(diver.x) >= -30)))
+	{
+		return true;
+	}
+	
+}
 void MainLoop()
 {
 	LeftPosOfDiver = diver.x;
@@ -108,15 +126,20 @@ void MainLoop()
 
 	BubbleLeftY = bubbleLeft.y;
 	BubbleRightY = bubbleRight.y;
-	while (flag)
+
+
+	while (playing)
 	{
 		
 		SDL_PollEvent(&SDLevent);
-
+		gameover -= 0.1;
+		
 		if (SDLevent.type == SDL_QUIT || diver.x == 0 || diver.x == 700)
 		{
-			flag = false;
+			
 			cout << "Wrong";
+			break;
+			
 
 		}
 		if (SDLevent.type == SDL_KEYDOWN)
@@ -125,7 +148,7 @@ void MainLoop()
 			{
 				case SDLK_LEFT:
 				{
-					LeftPosOfDiver -= 0.3;
+					LeftPosOfDiver -= 0.7;
 					diver.x = LeftPosOfDiver;
 					RightPosOfDiver = LeftPosOfDiver;
 
@@ -137,7 +160,7 @@ void MainLoop()
 				}
 				case SDLK_RIGHT:
 				{
-					RightPosOfDiver += 0.3;
+					RightPosOfDiver += 0.7;
 					diver.x = RightPosOfDiver;
 					LeftPosOfDiver = RightPosOfDiver;
 
@@ -152,10 +175,6 @@ void MainLoop()
 
 
 
-
-
-
-
 	there:
 
 		SDL_RenderCopy(renderer, textureOfPoint, 0, &point);
@@ -163,10 +182,10 @@ void MainLoop()
 		SDL_RenderCopy(renderer, textureOfDiver, 0, &diver);
 		//Copy textureOfDiver in diver rectangle
 		SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
-		//Copy textureOfBubbleLeft in bubbleLeft
+		//Copy textureOfBubbleLeft in bubbleLeft rectangle
 
 		SDL_RenderCopy(renderer, textureOfBubbleRight, 0, &bubbleRight);
-		//Copy textureOfBubbleRight in bubbleRight
+		//Copy textureOfBubbleRight in bubbleRight rectangle
 
 		SDL_SetRenderDrawColor(renderer, 51, 153, 255, 255);
 		SDL_RenderPresent(renderer);//present renderer and visualisation of all shapes
@@ -176,9 +195,9 @@ void MainLoop()
 
 
 
-		PosOfPoint -= 0.1;
-		BubbleLeftY -= 0.07;
-		BubbleRightY -= 0.05;
+		PosOfPoint -= 0.3;
+		BubbleLeftY -= 0.2;
+		BubbleRightY -= 0.1;
 		bubbleLeft.y = BubbleLeftY;
 		point.y = PosOfPoint;
 		bubbleRight.y = BubbleRightY;
@@ -195,14 +214,26 @@ void MainLoop()
 
 		}
 		//Find collusion and set random position of the point
-		if (((round(point.y) - round(diver.y) >= -30) && (round(point.y) - round(diver.y) <= 40) && (round(point.x) - round(diver.x) <= 25) && (round(point.x) - round(diver.x) >= -25)) || point.y < -30)
+		if (FindCollusion() || point.y < -30)
 		{
+			if (FindCollusion())
+			{
+				gameover += 150;
+			}
+			
 			y = rand() % 20 + 500;
 			x = rand() % 520 + 65;
 			point.x = x;
 			point.y = y;
 			PosOfPoint = point.y;
 
+		}
+		// Output the score of life 
+		cout << round(gameover) << endl;
+		// set Game Over when score is less or equal to 0
+		if (GameOver(gameover) != true)
+		{
+			cout << endl << endl << "GAME OVER!! The water pressure was ENORMOUS!! YOU DIED!!" << endl << endl;
 		}
 	}
 }
