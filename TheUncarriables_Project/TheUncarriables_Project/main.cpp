@@ -33,13 +33,16 @@ float BubbleLeftY;
 float BubbleRightY;
 bool playing = true;
 float gameover = 800;
-
-
+int countQuestions = 0;
+string answer;
+int randomquiz = 0;
+string arrayOfQuestion[10] = {"In what unit are forces measured?", "When the net force on an object equals 0 Newtons, we know the forces are __?", "Anytime the net force does NOT equal zero, the forces are __", "What is the scientific name for a push or a pull?", "The combination of multiple forces acting on an object is known as", "Which type of force creates contact between two surfaces?", "What operation is used to calculate net forces acting in the SAME direction?", "What operation is used to calculate net forces acting in DIFFERENT directions?", "True or false, in physics we measure speed in m/s", "True or false, Forces cannot act on objects from a distance, only through direct contact."};
 void CreateWindow()
 {
 	
 	SDL_CreateWindowAndRenderer(700, 500, 0, &window, &renderer);
 	SDL_SetWindowTitle(window, "TheUncarriables");
+	SDL_SetWindowPosition(window, 700, SDL_WINDOWPOS_CENTERED);
 }
 void SetThePoint()
 {
@@ -112,11 +115,166 @@ bool GameOver(float gameover)
 }
 bool FindCollusion()
 {
-	if (((round(point.y) - round(diver.y) >= -40) && (round(point.y) - round(diver.y) <= 40) && (round(point.x) - round(diver.x) <= 30) && (round(point.x) - round(diver.x) >= -30)))
+	if (((round(point.y) - round(diver.y) >= 0) && (round(point.y) - round(diver.y) <= 35) && (round(point.x) - round(diver.x) <= 20) && (round(point.x) - round(diver.x) >= -20)))
 	{
 		return true;
 	}
 	
+}
+void Quiz()
+{
+	cout << "Type only with small letters:" << endl;
+	cout << arrayOfQuestion[countQuestions] << endl;
+	
+	getline(cin, answer);
+	switch (countQuestions)
+	{
+	case 0: {
+		if (answer == "newtons")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'newtons\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+
+		break;
+	}
+	case 1: {
+		if (answer == "balanced")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'balanced\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 2: {
+		if (answer == "unbalanced")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to:  " << round(gameover) << endl;
+
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'unbalanced\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 3: {
+		if (answer == "force")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'force\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 4: {
+		if (answer == "net force")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'net force\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 5: {
+		if (answer == "fricton")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'friction\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 6: {
+		if (answer == "+")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'+\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 7: {
+		if (answer == "-")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'-\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 8: {
+		if (answer == "true")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'true\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+		}
+		break;
+	}
+	case 9: {
+		if (answer == "false")
+		{
+			cout << "Correct" << endl;
+			gameover += 150;
+			cout << "You increase your to: " << round(gameover) << endl;
+		}
+		else {
+			cout << "Wrong" << endl << "The correct answer is \'false\'" << endl;
+			gameover -= 80;
+			cout << "You decrease your score to: " << round(gameover) << endl;
+
+		}
+		break;
+	}
+
+	}
+	countQuestions++;
 }
 void MainLoop()
 {
@@ -219,6 +377,17 @@ void MainLoop()
 			if (FindCollusion())
 			{
 				gameover += 150;
+				randomquiz++;
+				if (randomquiz % 5 == 0)
+				{
+					Quiz();
+					
+					cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
+					cout << "Ready?" << endl;
+					cout << "GOO!";
+					SDL_Delay(7000);
+
+				}
 			}
 			
 			y = rand() % 20 + 500;

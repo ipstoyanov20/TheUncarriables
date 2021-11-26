@@ -1,25 +1,25 @@
 ﻿  main.cpp
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(123,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(124,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(125,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(127,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(128,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(135,18): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(151,27): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(152,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(163,28): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(164,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(198,20): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(199,21): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(200,22): warning C4305: '-=': truncation from 'double' to 'float'
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(201,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(202,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(203,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(224,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(225,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(226,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(227,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(228,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(120): warning C4715: 'FindCollusion': not all control paths return a value
-C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(112): warning C4715: 'GameOver': not all control paths return a value
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(281,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(282,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(283,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(285,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(286,28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(293,18): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(309,27): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(310,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(321,28): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(322,16): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(356,20): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(357,21): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(358,22): warning C4305: '-=': truncation from 'double' to 'float'
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(359,18): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(360,13): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(361,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(393,20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(394,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(395,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(396,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(397,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(115): warning C4715: 'GameOver': not all control paths return a value
+C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\main.cpp(123): warning C4715: 'FindCollusion': not all control paths return a value
   TheUncarriables_Project.vcxproj -> C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\x64\Debug\TheUncarriables_Project.exe
