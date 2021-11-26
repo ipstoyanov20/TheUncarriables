@@ -108,9 +108,9 @@ void SetDiver()
 }
 bool GameOver(float gameover)
 {
-	if (gameover <= 0)
+	if (gameover >= 0)
 	{
-		playing = false;
+		playing = true;
 		return playing;
 	}
 }
@@ -401,7 +401,7 @@ void MainLoop()
 		// Output the score of life 
 		cout << round(gameover) << endl;
 		// set Game Over when score is less or equal to 0
-		if (GameOver(gameover) != true)
+		if (GameOver(gameover) == true)
 		{
 			cout << endl << endl << "GAME OVER!! The water pressure was ENORMOUS!! YOU DIED!!" << endl << endl;
 		}

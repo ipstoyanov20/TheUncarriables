@@ -20,8 +20,6 @@ C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Projec
 C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(396,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(397,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(398,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  main.cpp
-  Generating Code...
-C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(124): warning C4715: 'FindCollusion': not all control paths return a value
 C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(116): warning C4715: 'GameOver': not all control paths return a value
+C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(124): warning C4715: 'FindCollusion': not all control paths return a value
   TheUncarriables_Project.vcxproj -> C:\Users\Дени\TheUncarriables\TheUncarriables_Project\x64\Debug\TheUncarriables_Project.exe

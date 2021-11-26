@@ -10,9 +10,13 @@ namespace UnitTesting
 	{
 	public:
 		
-		TEST_METHOD(TestMethod1)
+		TEST_METHOD(TestMethodThatTestGameOverWith0Value)
 		{
+			bool flag;
 
+			flag = GameOver(0);
+
+			Assert::IsTrue(!flag,L"Expected true");
 		}
 	};
 }
