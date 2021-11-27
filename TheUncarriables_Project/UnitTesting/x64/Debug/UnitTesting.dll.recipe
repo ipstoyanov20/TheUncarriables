@@ -2,6 +2,9 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+      <FullPath>C:\Users\Дени\TheUncarriables\TheUncarriables_Project\x64\Debug\TheUncarriables_Project.exe</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
       <FullPath>C:\Users\Дени\TheUncarriables\TheUncarriables_Project\x64\Debug\UnitTesting.dll</FullPath>
     </ProjectOutput>
   </ProjectOutputs>

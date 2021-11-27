@@ -99,7 +99,7 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\x64\Debug;$(SolutionDir)SDL_libraries;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;$(SolutionDir)SDL_libraries;C:\Users\Дени\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\x64\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>main.obj;GameFunctions.obj;SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -167,6 +167,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheUncarriables_Project\TheUncarriables_Project.vcxproj">
+      <Project>{04740f50-396e-4cba-a453-10f95e16d4b3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
