@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Speed()
+double Speed() //Formula for speed
 {
     double V = 0, S = 0, t = 0; //Initialize parameters
     char x;
@@ -35,7 +35,8 @@ void Speed()
         }
         cout << endl;
         V = S / t;
-        cout << "V = " << V << " km/h";
+        cout << "[Kilometers per hour]   V = ";
+        return V;
     }
     else if (x == 'S') //This is for distance
     {
@@ -47,7 +48,8 @@ void Speed()
         cin >> t;
         cout << endl;
         S = V * t;
-        cout << "S = " << S << " km";
+        cout << "[Kilometers]   S = ";
+        return S;
     }
     else if (x == 't') //This is for time
     {
@@ -69,20 +71,25 @@ void Speed()
         }
         cout << endl;
         t = S / V;
-        cout << "t = " << t << " hours";
+        cout << "[Hours]   t = ";
+        return t;
     }
     else
     {
         cout << "Not valid input!" << endl;
         Speed();
+        return 0;
     }
 
 }
-void Pressure()
+
+double Pressure() //Formula for pressure
 {
     double P, F, S;
     char x;
+
     system("clear");
+    
     cout << "What do you want to find?" << endl;
     cout << "P / F / S" << endl;
     cin >> x;
@@ -107,7 +114,8 @@ void Pressure()
         }
         cout << endl;
         P = F / S;
-        cout << "P = " << P << " Pa";
+        cout << "[Pascal]   P = ";
+        return P;
 
     }
     else if (x == 'F')      //Finds Force
@@ -120,7 +128,8 @@ void Pressure()
         cin >> S;
         cout << endl;
         F = P * S;
-        cout << "F = " << F << " N";
+        cout << "[Nutons]   F = ";
+        return F;
     }
     else if (x == 'S') //Finds the Area
     {
@@ -140,20 +149,34 @@ void Pressure()
                 Pressure();
             }
         }
+        cout << endl;
+        S = F / P;
+        cout << "[m2]   S = ";
+        return S;
     }
-    cout << endl;
-    S = F / P;
-    cout << "S = " << S << " m2";
+    else
+    {
+      cout << "Not valid input!" << endl;
+      Pressure();
+      return 0;
+    }
+
 }
-void Density()
+
+double Density() //Formula for density
 {
     double p, m, V;
     char x;
+    
+    system("clear");
+
     cout << "What do you want to find?" << endl;
     cout << "p / m / V" << endl;
     cin >> x;
+    
+    system("clear");
 
-    if (x == 'p')    //Finds Density
+    if (x == 'p') //Finds Density
     {
         cout << endl << "The formula is: p = m / V" << endl;  
 
@@ -173,7 +196,8 @@ void Density()
         }
         cout << endl;
         p = m / V;
-        cout << "p = " << p << " kg/m3";
+        cout << "[kg/m3]   p = ";
+        return p;
 
     }
     else if (x == 'm') //Finds mass
@@ -186,7 +210,8 @@ void Density()
         cin >> V;
         cout << endl;
         m = p * V;
-        cout << "m = " << m << " kg";
+        cout << "[Kilograms]   m = ";
+        return m;
     }
     else if (x == 'V')     //Finds Volume
     {
@@ -205,31 +230,54 @@ void Density()
             {
                 Density();
             }
+            
         }
         cout << endl;
         V = m / p;
-        cout << "V = " << V << " m3";
+        cout << "[m3]   V = ";
+        return V;
+        
+    }
+    else
+    {
+        cout << "Not valid input!" << endl;
+        Density();
+        return 0;
     }
 }
 
 
-void SelectFormula()
+double SelectFormula()
 {
-
+    
     int FormulaSelect;
 
     system("clear");
 
     cout << "1 - Speed" << endl;
-    cout << "2 - Pressure" << endl;
-    cout << "3 - Density" << endl;
-    cout << "4 - Electric current - In Progress" << endl << endl;
+    cout << "2 - Displacement with positive acceleration - In Progress" << endl;
+    cout << "3 - Displacement with negative acceleration - In Progress" << endl;
+    cout << "4 - Pressure" << endl;
+    cout << "5 - Density" << endl;
+    cout << "6 - Electric currency - In Progress" << endl << endl;
 
     cin >> FormulaSelect; //Select formula
 
     if (FormulaSelect == 1)
     {
-        Speed(); // Start Speed() function
+        return Speed(); //Starts Speed() function
+    }
+    else if(FormulaSelect == 4)
+    {
+      return Pressure(); //Starts Pressure() function
+    }
+    else if(FormulaSelect == 5)
+    {
+      return Density(); //Starts Density() function
+    }
+    else
+    {
+      return 0;
     }
 
 }
@@ -241,7 +289,7 @@ int main()
 
     while (retry)
     {
-        SelectFormula();
+        cout << SelectFormula();
         cout << endl << endl;
         cout << "Do you want to exit? ";
 
