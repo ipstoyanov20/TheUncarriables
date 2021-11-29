@@ -108,9 +108,9 @@ void SetDiver()
 }
 bool GameOver(float gameover)
 {
-	if (gameover >= 0)
+	if (gameover <= 0)
 	{
-		playing = true;
+		playing = false;
 		return playing;
 	}
 }
@@ -384,9 +384,11 @@ void MainLoop()
 					Quiz();
 
 					cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
+					SDL_Delay(2000);
 					cout << "Ready?" << endl;
+					SDL_Delay(2000);
 					cout << "GOO!";
-					SDL_Delay(7000);
+					SDL_Delay(1000);
 
 				}
 			}
@@ -401,7 +403,7 @@ void MainLoop()
 		// Output the score of life 
 		cout << round(gameover) << endl;
 		// set Game Over when score is less or equal to 0
-		if (GameOver(gameover) == true)
+		if (GameOver(gameover) == false)
 		{
 			cout << endl << endl << "GAME OVER!! The water pressure was ENORMOUS!! YOU DIED!!" << endl << endl;
 		}
