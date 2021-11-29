@@ -145,8 +145,73 @@ void Pressure()
     S = F / P;
     cout << "S = " << S << " m2";
 }
+void Density()
+{
+    double p, m, V;
+    char x;
+    cout << "What do you want to find?" << endl;
+    cout << "p / m / V" << endl;
+    cin >> x;
 
+    if (x == 'p')    //Finds Density
+    {
+        cout << endl << "The formula is: p = m / V" << endl;  
+
+        cout << "[Kilograms]   m = ";
+        cin >> m;
+        cout << "[m3]   V = ";
+        cin >> V;
+        if (V == 0)
+        {
+            cout << "Not valid input!";
+            cout << "Try again: ";
+            cin >> V;
+            if (V == 0)
+            {
+                Density();
+            }
+        }
+        cout << endl;
+        p = m / V;
+        cout << "p = " << p << " kg/m3";
+
+    }
+    else if (x == 'm') //Finds mass
+    {
+        cout << endl << "The formula is: m = p . V" << endl;
+
+        cout << "[kg/m3]   p = ";
+        cin >> p;
+        cout << "[m3]   V = ";
+        cin >> V;
+        cout << endl;
+        m = p * V;
+        cout << "m = " << m << " kg";
+    }
+    else if (x == 'V')     //Finds Volume
+    {
+        cout << endl << "The formula is: V = m / p" << endl;
+
+        cout << "[Kilograms]   m = ";
+        cin >> m;
+        cout << "[kg/m3]   p = ";
+        cin >> p;
+        if (p == 0)
+        {
+            cout << "Not valid input!";
+            cout << "Try again: ";
+            cin >> p;
+            if (p == 0)
+            {
+                Density();
+            }
+        }
+        cout << endl;
+        V = m / p;
+        cout << "V = " << V << " m3";
+    }
 }
+
 
 void SelectFormula()
 {
@@ -157,7 +222,7 @@ void SelectFormula()
 
     cout << "1 - Speed" << endl;
     cout << "2 - Pressure" << endl;
-    cout << "3 - Density - In Progress" << endl;
+    cout << "3 - Density" << endl;
     cout << "4 - Electric current - In Progress" << endl << endl;
 
     cin >> FormulaSelect; //Select formula
