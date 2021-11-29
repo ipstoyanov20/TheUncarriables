@@ -6,24 +6,30 @@
 #include<string>
 #include "../TheUncarriables_Project/GameFunctions.h"
 #include<SDL_image.h> // Here we can use images in SDL
+#include<SDL_ttf.h>
 using namespace std;
 
 SDL_Window* window;
 SDL_Renderer* renderer;
 SDL_Rect diver;
 SDL_Event SDLevent;
-SDL_Surface* surfaceOfBubbleLeft;
-SDL_Texture* textureOfBubbleLeft;
-SDL_Surface* surfaceOfBubbleRight;
-SDL_Texture* textureOfBubbleRight;
-SDL_Surface* surfaceOfDiver;
-SDL_Texture* textureOfDiver;
-SDL_Surface* surfaceOfPoint;
-SDL_Texture* textureOfPoint;
+SDL_Surface* surfaceOfBubbleLeft = nullptr;;
+SDL_Texture* textureOfBubbleLeft = nullptr;;
+SDL_Surface* surfaceOfBubbleRight = nullptr;;
+SDL_Texture* textureOfBubbleRight = nullptr;;
+SDL_Surface* surfaceOfDiver = nullptr;;
+SDL_Texture* textureOfDiver = nullptr;;
+SDL_Surface* surfaceOfPoint = nullptr;;
+SDL_Texture* textureOfPoint = nullptr;;
 SDL_Rect point;
 SDL_Rect bubbleLeft;
 SDL_Rect bubbleRight;
+SDL_Rect scoreRect;
+TTF_Font* font = nullptr;
 
+SDL_Color color = { 0,0,0 };
+SDL_Surface* scoreSurface = nullptr;
+SDL_Texture* scoreTexture = nullptr;
 //Useful variables
 float LeftPosOfDiver;
 float PosOfPoint;
@@ -33,7 +39,7 @@ float x = 0;
 float BubbleLeftY;
 float BubbleRightY;
 bool playing = true;
-float gameover = 800;
+float gameover = 1000;
 int countQuestions = 0;
 string answer;
 int randomquiz = 0;
@@ -55,10 +61,26 @@ void SetThePoint()
 
 	point.w = 30;
 }
+void SetscoreRect()
+{
+	scoreRect.x = 600;
+	scoreRect.h = 50;
+	scoreRect.w = 60;
+	scoreRect.y = 0;
+	font = TTF_OpenFont("arial.ttf", 25);
+	
+}
+void UpdateScore(float gameover)
+{
+	int firstPartOfFloat = round(gameover);
+	string score = to_string(firstPartOfFloat);
+	scoreSurface = TTF_RenderText_Solid(font, score.c_str(), color);
+	scoreTexture = SDL_CreateTextureFromSurface(renderer, scoreSurface);
+}
 void SetBubbleLeft()
 {
 
-	bubbleLeft.x = 20;
+	bubbleLeft.x = 10;
 
 	bubbleLeft.y = 500;
 
@@ -70,7 +92,7 @@ void SetBubbleLeft()
 void SetBubbleRight()
 {
 
-	bubbleRight.x = 620;
+	bubbleRight.x = 650;
 
 	bubbleRight.y = 500;
 
@@ -122,9 +144,26 @@ bool FindCollusion()
 	}
 
 }
+void Rendering()
+{
+	SDL_RenderCopy(renderer, textureOfPoint, 0, &point);
+	//Copy textureOfPoint in point rectangle
+	SDL_RenderCopy(renderer, textureOfDiver, 0, &diver);
+	//Copy textureOfDiver in diver rectangle
+	SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
+	//Copy textureOfBubbleLeft in bubbleLeft rectangle
+
+	SDL_RenderCopy(renderer, textureOfBubbleRight, 0, &bubbleRight);
+	//Copy textureOfBubbleRight in bubbleRight rectangle
+	SDL_RenderCopy(renderer, scoreTexture, 0, &scoreRect);
+
+	SDL_SetRenderDrawColor(renderer, 51, 153, 255, 255);
+	SDL_RenderPresent(renderer);//present renderer and visualisation of all shapes
+	SDL_RenderClear(renderer);//Clear renderer for next position of all shapes
+}
 void Quiz()
 {
-	cout << "Type only with small letters:" << endl;
+	cout << endl << "Type only with small letters:" << endl;
 	cout << arrayOfQuestion[countQuestions] << endl;
 
 	getline(cin, answer);
@@ -135,12 +174,13 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
+			
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'newtons\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 
 		break;
@@ -150,12 +190,14 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
+			
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'balanced\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
+			
 		}
 		break;
 	}
@@ -164,13 +206,14 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to:  " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
+			
 
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'unbalanced\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -179,12 +222,12 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'force\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -193,12 +236,12 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'net force\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -207,12 +250,12 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'friction\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -221,12 +264,13 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
+			
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'+\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -235,12 +279,12 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'-\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -249,12 +293,12 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'true\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
@@ -263,18 +307,18 @@ void Quiz()
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
-			cout << "You increase your to: " << round(gameover) << endl;
+			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'false\'" << endl;
-			gameover -= 80;
-			cout << "You decrease your score to: " << round(gameover) << endl;
-
+			gameover -= 110;
+			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 
 	}
+	UpdateScore(gameover);
 	countQuestions++;
 }
 void MainLoop()
@@ -291,8 +335,8 @@ void MainLoop()
 	{
 
 		SDL_PollEvent(&SDLevent);
-		gameover -= 0.1;
-
+		
+	
 		if (SDLevent.type == SDL_QUIT || diver.x == 0 || diver.x == 700)
 		{
 
@@ -307,26 +351,26 @@ void MainLoop()
 			{
 			case SDLK_LEFT:
 			{
-				LeftPosOfDiver -= 0.7;
+				LeftPosOfDiver -= 0.5;
 				diver.x = LeftPosOfDiver;
 				RightPosOfDiver = LeftPosOfDiver;
 
 
 
 
-				goto there;
+				goto GoToRenderAll;
 				break;
 			}
 			case SDLK_RIGHT:
 			{
-				RightPosOfDiver += 0.7;
+				RightPosOfDiver += 0.5;
 				diver.x = RightPosOfDiver;
 				LeftPosOfDiver = RightPosOfDiver;
 
 
 
 
-				goto there;
+				goto GoToRenderAll;
 				break;
 			}
 			}
@@ -334,29 +378,16 @@ void MainLoop()
 
 
 
-	there:
-
-		SDL_RenderCopy(renderer, textureOfPoint, 0, &point);
-		//Copy textureOfPoint in point rectangle
-		SDL_RenderCopy(renderer, textureOfDiver, 0, &diver);
-		//Copy textureOfDiver in diver rectangle
-		SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
-		//Copy textureOfBubbleLeft in bubbleLeft rectangle
-
-		SDL_RenderCopy(renderer, textureOfBubbleRight, 0, &bubbleRight);
-		//Copy textureOfBubbleRight in bubbleRight rectangle
-
-		SDL_SetRenderDrawColor(renderer, 51, 153, 255, 255);
-		SDL_RenderPresent(renderer);//present renderer and visualisation of all shapes
-		SDL_RenderClear(renderer);//Clear renderer for next position of all shapes
+	GoToRenderAll:
+		Rendering();
+		
 
 
 
 
-
-		PosOfPoint -= 0.3;
-		BubbleLeftY -= 0.2;
-		BubbleRightY -= 0.1;
+		PosOfPoint -= 0.25;
+		BubbleLeftY -= 0.15;
+		BubbleRightY -= 0.08;
 		bubbleLeft.y = BubbleLeftY;
 		point.y = PosOfPoint;
 		bubbleRight.y = BubbleRightY;
@@ -377,14 +408,15 @@ void MainLoop()
 		{
 			if (FindCollusion())
 			{
-				gameover += 150;
+				gameover += 200;
 				randomquiz++;
 				if (randomquiz % 5 == 0)
 				{
+					gameover -= 200;
 					Quiz();
 
 					cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
-					SDL_Delay(2000);
+					SDL_Delay(3000);
 					cout << "Ready?" << endl;
 					SDL_Delay(2000);
 					cout << "GOO!";
@@ -394,14 +426,14 @@ void MainLoop()
 			}
 
 			y = rand() % 20 + 500;
-			x = rand() % 520 + 65;
+			x = rand() % 520 + 55;
 			point.x = x;
 			point.y = y;
 			PosOfPoint = point.y;
 
 		}
-		// Output the score of life 
-		cout << round(gameover) << endl;
+		gameover -= 0.08;
+		UpdateScore(gameover);
 		// set Game Over when score is less or equal to 0
 		if (GameOver(gameover) == false)
 		{
@@ -415,7 +447,7 @@ void Setting()
 	SetDiver();
 	SetBubbleLeft();
 	SetBubbleRight();
-
+	SetscoreRect();
 	SetTextureAndSurfaceOfPoint();
 	SetTextureAndSurfaceOfDiver();
 	SetTextureAndSurfaceOfBubbleleft();

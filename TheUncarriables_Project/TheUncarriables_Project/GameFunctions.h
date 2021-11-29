@@ -18,6 +18,8 @@ void SetTextureAndSurfaceOfDiver();
 void SetTextureAndSurfaceOfBubbleleft();
 void SetTextureAndSurfaceOfBubbleright();
 void SetDiver();
+void SetscoreRect();
+void UpdateScore(float gameover);
 bool GameOver(float gameover);
 bool FindCollusion();
 void Quiz();
