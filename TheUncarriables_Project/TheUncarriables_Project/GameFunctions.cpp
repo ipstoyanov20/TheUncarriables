@@ -13,14 +13,14 @@ SDL_Window* window;
 SDL_Renderer* renderer;
 SDL_Rect diver;
 SDL_Event SDLevent;
-SDL_Surface* surfaceOfBubbleLeft = nullptr;;
-SDL_Texture* textureOfBubbleLeft = nullptr;;
-SDL_Surface* surfaceOfBubbleRight = nullptr;;
-SDL_Texture* textureOfBubbleRight = nullptr;;
-SDL_Surface* surfaceOfDiver = nullptr;;
-SDL_Texture* textureOfDiver = nullptr;;
-SDL_Surface* surfaceOfPoint = nullptr;;
-SDL_Texture* textureOfPoint = nullptr;;
+SDL_Surface* surfaceOfBubbleLeft;
+SDL_Texture* textureOfBubbleLeft;
+SDL_Surface* surfaceOfBubbleRight;
+SDL_Texture* textureOfBubbleRight;
+SDL_Surface* surfaceOfDiver;
+SDL_Texture* textureOfDiver;
+SDL_Surface* surfaceOfPoint;
+SDL_Texture* textureOfPoint;
 SDL_Rect point;
 SDL_Rect bubbleLeft;
 SDL_Rect bubbleRight;
@@ -246,7 +246,7 @@ void Quiz()
 		break;
 	}
 	case 5: {
-		if (answer == "fricton")
+		if (answer == "friction")
 		{
 			cout << "Correct" << endl;
 			gameover += 150;
