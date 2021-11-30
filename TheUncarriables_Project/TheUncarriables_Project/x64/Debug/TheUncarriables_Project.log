@@ -18,6 +18,9 @@ C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_P
 C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(431,14): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(432,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(435,19): warning C4305: '-=': truncation from 'double' to 'float'
+  main.cpp
+  Generating Code...
 C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(138): warning C4715: 'GameOver': not all control paths return a value
 C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\TheUncarriables_Project\GameFunctions.cpp(146): warning C4715: 'FindCollusion': not all control paths return a value
+  LINK : C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\x64\Debug\TheUncarriables_Project.exe not found or not built by the last incremental link; performing full link
   TheUncarriables_Project.vcxproj -> C:\Users\Hello\Desktop\TheUncarriables\TheUncarriables_Project\x64\Debug\TheUncarriables_Project.exe
