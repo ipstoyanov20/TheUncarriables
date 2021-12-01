@@ -40,9 +40,13 @@ float BubbleLeftY;
 float BubbleRightY;
 bool playing = true;
 float gameover = 1000;
-int countQuestions = 0;
 string answer;
+int i = 0;
+int j = 0;
 int randomquiz = 0;
+int randomQuestion = 0;
+int help[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1};
+
 string arrayOfQuestion[10] = { "In what unit are forces measured?", "When the net force on an object equals 0 Newtons, we know the forces are __?", "Anytime the net force does NOT equal zero, the forces are __", "What is the scientific name for a push or a pull?", "The combination of multiple forces acting on an object is known as", "Which type of force creates contact between two surfaces?", "What operation is used to calculate net forces acting in the SAME direction?", "What operation is used to calculate net forces acting in DIFFERENT directions?", "True or false, in physics we measure speed in m/s", "True or false, Forces cannot act on objects from a distance, only through direct contact." };
 void CreateWindow()
 {
@@ -136,7 +140,7 @@ bool GameOver(float gameover)
 		return playing;
 	}
 }
-bool FindCollusion()
+bool FindCollision()
 {
 	if (((round(point.y) - round(diver.y) >= 0) && (round(point.y) - round(diver.y) <= 35) && (round(point.x) - round(diver.x) <= 20) && (round(point.x) - round(diver.x) >= -20)))
 	{
@@ -146,28 +150,45 @@ bool FindCollusion()
 }
 void Rendering()
 {
-	SDL_RenderCopy(renderer, textureOfPoint, 0, &point);
 	//Copy textureOfPoint in point rectangle
-	SDL_RenderCopy(renderer, textureOfDiver, 0, &diver);
+	SDL_RenderCopy(renderer, textureOfPoint, 0, &point);
 	//Copy textureOfDiver in diver rectangle
-	SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
+	SDL_RenderCopy(renderer, textureOfDiver, 0, &diver);
 	//Copy textureOfBubbleLeft in bubbleLeft rectangle
-
-	SDL_RenderCopy(renderer, textureOfBubbleRight, 0, &bubbleRight);
+	SDL_RenderCopy(renderer, textureOfBubbleLeft, 0, &bubbleLeft);
+	
 	//Copy textureOfBubbleRight in bubbleRight rectangle
+	SDL_RenderCopy(renderer, textureOfBubbleRight, 0, &bubbleRight);
+	//Copy scoreTexture in scoreRect rectangle
 	SDL_RenderCopy(renderer, scoreTexture, 0, &scoreRect);
-
+	//Set Background color to the window
 	SDL_SetRenderDrawColor(renderer, 51, 153, 255, 255);
-	SDL_RenderPresent(renderer);//present renderer and visualisation of all shapes
-	SDL_RenderClear(renderer);//Clear renderer for next position of all shapes
+	//present renderer and visualisation of all shapes
+	SDL_RenderPresent(renderer);
+	//Clear renderer for next position of all shapes
+	SDL_RenderClear(renderer);
+}
+void Random()
+{
+	
+	randomQuestion = rand() % 10;
+	if (help[i] == randomQuestion || help[i + 1] == randomQuestion || help[i + 2] == randomQuestion || help[i + 3] == randomQuestion || help[i + 4] == randomQuestion || help[i + 5] == randomQuestion || help[i + 6] == randomQuestion || help[i + 7] == randomQuestion || help[i + 8] == randomQuestion || help[i + 9] == randomQuestion)
+	{
+
+		Random();
+	}
 }
 void Quiz()
 {
-	cout << endl << "Type only with small letters:" << endl;
-	cout << arrayOfQuestion[countQuestions] << endl;
+	srand(time(0));
+	
+	cout << endl << endl << "Type only with small letters:" << endl;
+	
+	Random();
+	cout << arrayOfQuestion[randomQuestion] << endl;
 
 	getline(cin, answer);
-	switch (countQuestions)
+	switch (randomQuestion)
 	{
 	case 0: {
 		if (answer == "newtons")
@@ -319,7 +340,10 @@ void Quiz()
 
 	}
 	UpdateScore(gameover);
-	countQuestions++;
+	
+	help[j] = randomQuestion;
+	j++;
+	
 }
 void MainLoop()
 {
@@ -340,7 +364,7 @@ void MainLoop()
 		if (SDLevent.type == SDL_QUIT || diver.x == 0 || diver.x == 700)
 		{
 
-			cout << "Wrong";
+			cout << endl << "GoodBye";
 			break;
 
 
@@ -403,24 +427,36 @@ void MainLoop()
 			BubbleRightY = 500;
 
 		}
-		//Find collusion and set random position of the point
-		if (FindCollusion() || point.y < -30)
+		//Find collision and set random position of the point
+		if (FindCollision() || point.y < -30)
 		{
-			if (FindCollusion())
+			if (FindCollision())
 			{
 				gameover += 200;
 				randomquiz++;
 				if (randomquiz % 5 == 0)
 				{
-					gameover -= 200;
-					Quiz();
-
-					cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
-					SDL_Delay(3000);
-					cout << "Ready?" << endl;
-					SDL_Delay(2000);
-					cout << "GOO!";
-					SDL_Delay(1000);
+					
+					if (randomquiz >= 50)
+					{
+						if (randomquiz == 50)
+						{
+							cout << endl << endl << "You Pass the Quiz!! Continue to play" << endl << endl;
+							SDL_Delay(2000);
+						}
+						continue;
+					}
+					else {
+						gameover -= 200;
+						Quiz();
+						cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
+						SDL_Delay(4000);
+						cout << "Ready?" << endl;
+						SDL_Delay(2000);
+						cout << "GOO!";
+						SDL_Delay(1000);
+					}
+					
 
 				}
 			}
