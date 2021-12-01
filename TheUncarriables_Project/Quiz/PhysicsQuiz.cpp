@@ -9,19 +9,11 @@ int number_q = 1;
 bool ask[10] = {true, true, true, true, true, true, true, true, true, true};
 
 void randomQuestion();
-void displayAnswers();
 void question(string question, string a, string b, string c, string d, char corr_answer);
 void result();
 
 int main()
 {
-	displayAnswers();
-}
-
-void displayAnswers()
-{
-	system("CLS");
-	cout << "Question " << number_q << "\t\tCorrect answers: " << correct << "\t\tWrong answers: " << wrong << endl << endl;
 	randomQuestion();
 }
 
@@ -80,18 +72,17 @@ void randomQuestion()
 			}
 		}
 	}
-	result();
 }
 
 void result()
 {
 	system("cls");
-	cout << "Total questions: " << number_q - 1 << endl;
-	cout << "Correct answers: " << correct << endl;
-	cout << "Wrong answers: " << wrong << endl;
+	cout << "Total questions:   " << number_q - 1 << endl;
+	cout << "Correct answers:   " << correct << endl;
+	cout << "Wrong answers:     " << wrong << endl << endl;
 	if (correct > wrong)
 	{
-		cout << "Congratulations! You pass." << endl;
+		cout << "Congratulations! You passed." << endl;
 	}
 	else if (wrong >= correct)
 	{
@@ -117,5 +108,10 @@ void question(string question, string a, string b, string c, string d, char corr
 		wrong++;
 	}
 	number_q++;
-	displayAnswers();
+	system("cls");
+
+	if (number_q - 1 == 10)
+	{
+		result();
+	}
 }
