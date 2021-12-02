@@ -39,13 +39,13 @@ float x = 0;
 float BubbleLeftY;
 float BubbleRightY;
 bool playing = true;
-float gameover = 1000;
+float gameover = 800;
 string answer;
-int i = 0;
-int j = 0;
+int counterOfArrayForQuestion = 0;
+int fillerArrayForQuestion = 0;
 int randomquiz = 0;
 int randomQuestion = 0;
-int help[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1};
+int ArrayForQuestion[10] = {-1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1};
 
 string arrayOfQuestion[10] = { "In what unit are forces measured?", "When the net force on an object equals 0 Newtons, we know the forces are __?", "Anytime the net force does NOT equal zero, the forces are __", "What is the scientific name for a push or a pull?", "The combination of multiple forces acting on an object is known as", "Which type of force creates contact between two surfaces?", "What operation is used to calculate net forces acting in the SAME direction?", "What operation is used to calculate net forces acting in DIFFERENT directions?", "True or false, in physics we measure speed in m/s", "True or false, Forces cannot act on objects from a distance, only through direct contact." };
 void CreateWindow()
@@ -172,7 +172,7 @@ void Random()
 {
 	
 	randomQuestion = rand() % 10;
-	if (help[i] == randomQuestion || help[i + 1] == randomQuestion || help[i + 2] == randomQuestion || help[i + 3] == randomQuestion || help[i + 4] == randomQuestion || help[i + 5] == randomQuestion || help[i + 6] == randomQuestion || help[i + 7] == randomQuestion || help[i + 8] == randomQuestion || help[i + 9] == randomQuestion)
+	if (ArrayForQuestion[counterOfArrayForQuestion] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 1] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 2] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 3] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 4] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 5] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 6] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 7] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 8] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 9] == randomQuestion)
 	{
 
 		Random();
@@ -341,8 +341,8 @@ void Quiz()
 	}
 	UpdateScore(gameover);
 	
-	help[j] = randomQuestion;
-	j++;
+	ArrayForQuestion[fillerArrayForQuestion] = randomQuestion;
+	fillerArrayForQuestion++;
 	
 }
 void MainLoop()
