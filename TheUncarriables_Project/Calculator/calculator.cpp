@@ -247,6 +247,233 @@ double Density() //Formula for density
 }
 
 
+void displacementPositiveAcceleration()
+{
+    double v0 = 0, v = 0, t = 0, a = 0, sV = 0, s = 0;
+    string x;
+
+    system("cls");
+
+    cout << "What do you want to find?" << endl;
+    cout << "V0/ V / t / displacement with starting speed (sV) / s" << endl;
+    cin >> x;
+
+    system("cls");
+
+    if (x == "sV") //Finds displacement with starting speed
+    {
+        cout << "The formula is: sV = V0 . t + a . t^2" << endl;
+
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+
+        cout << endl;
+        sV = v0 * t + a * pow(t, 2);
+        cout << "[Meters]   sV = " << sV;
+    }
+    else if (x == "s") //Finds displacement with no starting speed
+    {
+        cout << "The formula is: s = (a . t^2) / 2" << endl;
+
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+
+        cout << endl;
+        s = (a * pow(t, 2)) / 2;
+        cout << "[Meters]   s = " << s;
+    }
+    else if (x == "V0") //Finds starting speed
+    {
+        cout << "The formula is: V0 = V - a . t" << endl;
+
+        cout << "[Meters per second]   V = ";
+        cin >> v;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+
+        cout << endl;
+        v0 = v - a * t;
+        cout << "[Meters per second]   V0 = " << v0;
+
+    }
+    else if (x == "V") //Finds speed
+    {
+        cout << "The formula is: V = V0 + a . t" << endl;
+
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+
+        cout << endl;
+        v = v0 + a * t;
+        cout << "[Meters per second]   V = " << v;
+    }
+    else if (x == "t")     //Finds time
+    {
+        cout << "The formula is: t = (V - V0) / a" << endl;
+
+        cout << "[Meters per second]   V = ";
+        cin >> v;
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+
+        if (a == 0)
+        {
+            cout << "Not valid input!";
+            cout << "Try again: ";
+            cin >> a;
+            if (a == 0)
+            {
+                displacementPositiveAcceleration();
+            }
+
+        }
+        cout << endl;
+        t = (v - v0) / a;
+        cout << "[Seconds]   t = " << t;
+
+    }
+    else
+    {
+        cout << "Not valid input!" << endl;
+        displacementPositiveAcceleration();
+    }
+}
+
+void displacementNegativeAcceleration()
+{
+    double v0 = 0, v = 0, t = 0, a = 0, sS = 0, s = 0, t0 = 0;
+    string x;
+
+    system("cls");
+
+    cout << "What do you want to find?" << endl;
+    cout << "V0/ V / t / stopping displacement (sS) / s / t0" << endl;
+    cin >> x;
+
+    system("cls");
+
+    if (x == "sS") //Finds stopping displacement
+    {
+        cout << "The formula is: sS = V0^2 / (2 . a)" << endl;
+
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+
+        cout << endl;
+        sS = pow(v0, 2) / (2 * a);
+        cout << "[Meters]   sS = " << sS;
+    }
+    else if (x == "t0") //Finds time for stopping
+    {
+        cout << "The formula is: t0 = V0 / a" << endl;
+
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+
+        cout << endl;
+        t0 = v0 / a;
+        cout << "[Seconds]   t0 = " << t0;
+    }
+    else if (x == "s") //Finds displacement
+    {
+        cout << "The formula is: s = V0 . t - (a . t^2) / 2" << endl;
+
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+
+        cout << endl;
+        s = v0 * t - (a * pow(t, 2)) / 2;
+        cout << "[Meters]   s = " << s;
+    }
+    else if (x == "V0") //Finds starting speed
+    {
+        cout << "The formula is: V0 = V - a . t" << endl;
+
+        cout << "[Meters per second]   V = ";
+        cin >> v;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+
+        cout << endl;
+        v0 = v - a * t;
+        cout << "[Meters per second]   V0 = " << v0;
+
+    }
+    else if (x == "V") //Finds speed
+    {
+        cout << "The formula is: V = V0 - a . t" << endl;
+
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+        cout << "[Seconds]   t = ";
+        cin >> t;
+
+        cout << endl;
+        v = v0 - a * t;
+        cout << "[Meters per second]   V = " << v;
+    }
+    else if (x == "t")     //Finds time
+    {
+        cout << "The formula is: t = (V - V0) / a" << endl;
+
+        cout << "[Meters per second]   V = ";
+        cin >> v;
+        cout << "[Meters per second]   V0 = ";
+        cin >> v0;
+        cout << "[Meters per second, per second]   a = ";
+        cin >> a;
+
+        if (a == 0)
+        {
+            cout << "Not valid input!";
+            cout << "Try again: ";
+            cin >> a;
+            if (a == 0)
+            {
+                displacementPositiveAcceleration();
+            }
+
+        }
+        cout << endl;
+        t = (v - v0) / a;
+        cout << "[Seconds]   t = " << t;
+
+    }
+    else
+    {
+        cout << "Not valid input!" << endl;
+        displacementPositiveAcceleration();
+    }
+}
+
+
+
 double SelectFormula()
 {
     
@@ -255,8 +482,8 @@ double SelectFormula()
     system("clear");
 
     cout << "1 - Speed" << endl;
-    cout << "2 - Displacement with positive acceleration - In Progress" << endl;
-    cout << "3 - Displacement with negative acceleration - In Progress" << endl;
+    cout << "2 - Displacement with positive acceleration" << endl;
+    cout << "3 - Displacement with negative acceleration" << endl;
     cout << "4 - Pressure" << endl;
     cout << "5 - Density" << endl;
     cout << "6 - Electric currency - In Progress" << endl << endl;
@@ -266,6 +493,14 @@ double SelectFormula()
     if (FormulaSelect == 1)
     {
         return Speed(); //Starts Speed() function
+    }
+    else if (FormulaSelect == 2)
+    {
+        return displacementPositiveAcceleration(); //Starts displacementPositiveAcceleration() function
+    }
+    else if (FormulaSelect == 3)
+    {
+        return displacementNegativeAcceleration(); //Starts displacementNegativeAcceleration() function
     }
     else if(FormulaSelect == 4)
     {
