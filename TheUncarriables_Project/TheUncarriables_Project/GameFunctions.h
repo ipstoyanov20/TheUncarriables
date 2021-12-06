@@ -34,4 +34,5 @@ bool FindCollisionOfBombOne();
 void SetBombTwo();
 void Quiz();
 void MainLoop();
+void playAgain();
 void Setting();

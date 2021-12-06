@@ -271,7 +271,9 @@ void Quiz()
 			}
 			else 
 			{
-				cout << "Wrong" << endl << "The correct answer is \'newtons\'" << endl;
+				
+				cout << "Wrong";
+				cout << endl << "The correct answer is \'newtons\'" << endl;
 				gameVariables::gameover -= 110;
 				cout << "You decrease you score" << endl;
 			}
@@ -615,7 +617,22 @@ void RandomPosOfBombs()
 		}
 	}
 }
+void playAgain()
+{
+	char choose;
+	cin >> choose;
+	if (choose == 'Y')
+	{
+		gameVariables::gameover = 800;
+		gameVariables::playing = true;
+		cout << "Press \'Alt + Tab\' and WAIT to continue playing";
+		SDL_Delay(2000);
+		system("cls");
+	}
+	else if (choose == 'N') {
 
+	}
+}
 void MainLoop()
 {
 	gameVariables::LeftPosOfDiver = sdlProperties::diver.x;
@@ -690,6 +707,9 @@ void MainLoop()
 		if (GameOver(gameVariables::gameover) == false)
 		{
 			cout << endl << endl << "GAME OVER!! The water pressure was ENORMOUS!! YOU DIED!!" << endl << endl;
+			cout << "Do you want to contunue";
+			cout << endl << endl << "Press: \'Y\' - for Yes    or   \'N\'  - for No" << endl << endl;
+			playAgain();
 		}
 	}
 }
