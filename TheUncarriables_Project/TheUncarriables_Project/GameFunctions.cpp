@@ -41,32 +41,35 @@ namespace sdlProperties
 }
 
 
+namespace gameVariables
+{
+	float LeftPosOfDiver;
+	float PosOfPoint;
+	float RightPosOfDiver;
+	float y = 0;
+	float DecreasePosOfPoint = 0.25;
+	float x = 0;
+	float IncreaseSpeedOfDiver = 0.5;
+	int counterOfDecrease = 0;
+	float BubbleLeftY;
+	float BubbleRightY;
+	bool playing = true;
+	float decreaseScore = 0.08;
+	float gameover = 800;
+	string answer;
+	int counterOfArrayForQuestion = 0;
+	int fillerArrayForQuestion = 0;
+	int randomquiz = 0;
+	float PosYOfBombOne;
+	float PosYOfBombTwo;
+	bool BoolOne = false;
+	bool BoolTwo = false;
+	int randomQuestion = 0;
+	int ArrayForQuestion[10] = { -1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1 };
+}
 
 
 
-float LeftPosOfDiver;
-float PosOfPoint;
-float RightPosOfDiver;
-float y = 0;
-float DecreasePosOfPoint = 0.25;
-float x = 0;
-float IncreaseSpeedOfDiver = 0.5;
-int counterOfDecrease = 0;
-float BubbleLeftY;
-float BubbleRightY;
-bool playing = true;
-float decreaseScore = 0.08;
-float gameover = 800;
-string answer;
-int counterOfArrayForQuestion = 0;
-int fillerArrayForQuestion = 0;
-int randomquiz = 0;
-float PosYOfBombOne;
-float PosYOfBombTwo;
-bool BoolOne = false;
-bool BoolTwo = false;
-int randomQuestion = 0;
-int ArrayForQuestion[10] = { -1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1 };
 
 string arrayOfQuestion[10] = { "In what unit are forces measured?", "When the net force on an object equals 0 Newtons, we know the forces are __?", "Anytime the net force does NOT equal zero, the forces are __", "What is the scientific name for a push or a pull?", "The combination of multiple forces acting on an object is known as", "Which type of force creates contact between two surfaces?", "What operation is used to calculate net forces acting in the SAME direction?", "What operation is used to calculate net forces acting in DIFFERENT directions?", "True or false, in physics we measure speed in m/s", "True or false, Forces cannot act on objects from a distance, only through direct contact." };
 void CreateWindow()
@@ -157,8 +160,8 @@ bool GameOver(float gameover)
 {
 	if (gameover <= 0)
 	{
-		playing = false;
-		return playing;
+		gameVariables::playing = false;
+		return gameVariables::playing;
 	}
 }
 bool FindCollisionOfPoint()
@@ -198,8 +201,8 @@ void Rendering()
 void Random()
 {
 
-	randomQuestion = rand() % 10;
-	if (ArrayForQuestion[counterOfArrayForQuestion] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 1] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 2] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 3] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 4] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 5] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 6] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 7] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 8] == randomQuestion || ArrayForQuestion[counterOfArrayForQuestion + 9] == randomQuestion)
+	gameVariables::randomQuestion = rand() % 10;
+	if (gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 1] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 2] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 3] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 4] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 5] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 6] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 7] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 8] == gameVariables::randomQuestion || gameVariables::ArrayForQuestion[gameVariables::counterOfArrayForQuestion + 9] == gameVariables::randomQuestion)
 	{
 
 		Random();
@@ -230,164 +233,164 @@ void Quiz()
 	cout << endl << endl << "Type only with small letters:" << endl;
 
 	Random();
-	cout << arrayOfQuestion[randomQuestion] << endl;
+	cout << arrayOfQuestion[gameVariables::randomQuestion] << endl;
 
-	getline(cin, answer);
-	switch (randomQuestion)
+	getline(cin, gameVariables::answer);
+	switch (gameVariables::randomQuestion)
 	{
 	case 0: {
-		if (answer == "newtons")
+		if (gameVariables::answer == "newtons")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'newtons\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 
 		break;
 	}
 	case 1: {
-		if (answer == "balanced")
+		if (gameVariables::answer == "balanced")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'balanced\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 
 		}
 		break;
 	}
 	case 2: {
-		if (answer == "unbalanced")
+		if (gameVariables::answer == "unbalanced")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 
 
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'unbalanced\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 3: {
-		if (answer == "force")
+		if (gameVariables::answer == "force")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'force\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 4: {
-		if (answer == "net force")
+		if (gameVariables::answer == "net force")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'net force\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 5: {
-		if (answer == "friction")
+		if (gameVariables::answer == "friction")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'friction\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 6: {
-		if (answer == "+")
+		if (gameVariables::answer == "+")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'+\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 7: {
-		if (answer == "-")
+		if (gameVariables::answer == "-")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'-\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 8: {
-		if (answer == "true")
+		if (gameVariables::answer == "true")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'true\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 	case 9: {
-		if (answer == "false")
+		if (gameVariables::answer == "false")
 		{
 			cout << "Correct" << endl;
-			gameover += 150;
+			gameVariables::gameover += 150;
 			cout << "You increase your score" << endl;
 		}
 		else {
 			cout << "Wrong" << endl << "The correct answer is \'false\'" << endl;
-			gameover -= 110;
+			gameVariables::gameover -= 110;
 			cout << "You decrease you score" << endl;
 		}
 		break;
 	}
 
 	}
-	UpdateScore(gameover);
+	UpdateScore(gameVariables::gameover);
 
-	ArrayForQuestion[fillerArrayForQuestion] = randomQuestion;
-	fillerArrayForQuestion++;
+	gameVariables::ArrayForQuestion[gameVariables::fillerArrayForQuestion] = gameVariables::randomQuestion;
+	gameVariables::fillerArrayForQuestion++;
 
 }
 void RenderDiver()
@@ -406,9 +409,9 @@ void FindKeys()
 		{
 		case SDLK_LEFT:
 		{
-			LeftPosOfDiver -= IncreaseSpeedOfDiver;
-			sdlProperties::diver.x = LeftPosOfDiver;
-			RightPosOfDiver = LeftPosOfDiver;
+			gameVariables::LeftPosOfDiver -= gameVariables::IncreaseSpeedOfDiver;
+			sdlProperties::diver.x = gameVariables::LeftPosOfDiver;
+			gameVariables::RightPosOfDiver = gameVariables::LeftPosOfDiver;
 
 
 
@@ -418,9 +421,9 @@ void FindKeys()
 		}
 		case SDLK_RIGHT:
 		{
-			RightPosOfDiver += IncreaseSpeedOfDiver;
-			sdlProperties::diver.x = RightPosOfDiver;
-			LeftPosOfDiver = RightPosOfDiver;
+			gameVariables::RightPosOfDiver += gameVariables::IncreaseSpeedOfDiver;
+			sdlProperties::diver.x = gameVariables::RightPosOfDiver;
+			gameVariables::LeftPosOfDiver = gameVariables::RightPosOfDiver;
 
 
 
@@ -437,14 +440,14 @@ void RandomPosOfThePoint()
 	{
 		if (FindCollisionOfPoint())
 		{
-			gameover += 200;
-			randomquiz++;
-			if (randomquiz % 5 == 0)
+			gameVariables::gameover += 200;
+			gameVariables::randomquiz++;
+			if (gameVariables::randomquiz % 5 == 0)
 			{
 
-				if (randomquiz >= 50)
+				if (gameVariables::randomquiz >= 50)
 				{
-					if (randomquiz == 50)
+					if (gameVariables::randomquiz == 50)
 					{
 						cout << endl << endl << "You Pass the Quiz!! Continue to play" << endl << endl;
 						
@@ -453,26 +456,26 @@ void RandomPosOfThePoint()
 					}
 					else
 					{
-						if (randomquiz % 5 == 0)
+						if (gameVariables::randomquiz % 5 == 0)
 						{
-							if (counterOfDecrease >= 2)
+							if (gameVariables::counterOfDecrease >= 2)
 							{
 
 							}
 							else {
-								DecreasePosOfPoint += 0.07;
-								IncreaseSpeedOfDiver = 0.7;
-								decreaseScore = 0.1;
+								gameVariables::DecreasePosOfPoint += 0.07;
+								gameVariables::IncreaseSpeedOfDiver = 0.7;
+								gameVariables::decreaseScore = 0.1;
 							}
 
-							counterOfDecrease++;
+							gameVariables::counterOfDecrease++;
 
 						}
 					}
 
 				}
 				else {
-					gameover -= 200;
+					gameVariables::gameover -= 200;
 					Quiz();
 					cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
 					SDL_Delay(4000);
@@ -488,20 +491,20 @@ void RandomPosOfThePoint()
 			}
 		}
 
-		y = rand() % 20 + 500;
+		gameVariables::y = rand() % 20 + 500;
 		randomagain:
-		x = rand() % 520 + 55;
+		gameVariables::x = rand() % 520 + 55;
 
-		if ((x >= sdlProperties::BombOne.x - 50 && x <= sdlProperties::BombOne.x) || (x <= sdlProperties::BombOne.x + 50 && x >= sdlProperties::BombOne.x) || (x >= sdlProperties::BombTwo.x - 50 && x <= sdlProperties::BombTwo.x) || (x <= sdlProperties::BombTwo.x + 50 && x >= sdlProperties::BombTwo.x))
+		if ((gameVariables::x >= sdlProperties::BombOne.x - 50 && gameVariables::x <= sdlProperties::BombOne.x) || (gameVariables::x <= sdlProperties::BombOne.x + 50 && gameVariables::x >= sdlProperties::BombOne.x) || (gameVariables::x >= sdlProperties::BombTwo.x - 50 && gameVariables::x <= sdlProperties::BombTwo.x) || (gameVariables::x <= sdlProperties::BombTwo.x + 50 && gameVariables::x >= sdlProperties::BombTwo.x))
 		{
 			goto randomagain;
 		}
 		else {
-			sdlProperties::point.x = x;
+			sdlProperties::point.x = gameVariables::x;
 		}
 		
-		sdlProperties::point.y = y;
-		PosOfPoint = sdlProperties::point.y;
+		sdlProperties::point.y = gameVariables::y;
+		gameVariables::PosOfPoint = sdlProperties::point.y;
 
 	}
 }
@@ -543,10 +546,10 @@ void RandomPosOfBombs()
 		if (sdlProperties::BombOne.y < -60)
 		{
 			
-			x = rand() % 520 + 55;
+			gameVariables::x = rand() % 520 + 55;
 			
 
-			sdlProperties::BombOne.x = x;
+			sdlProperties::BombOne.x = gameVariables::x;
 			
 			
 
@@ -554,21 +557,21 @@ void RandomPosOfBombs()
 		else if (sdlProperties::BombTwo.y < -60)
 		{
 			
-			x = rand() % 520 + 55;
+			gameVariables::x = rand() % 520 + 55;
 
-			sdlProperties::BombTwo.x = x;
+			sdlProperties::BombTwo.x = gameVariables::x;
 			
 		}
 		else if(FindCollisionOfBombOne())
 		{
 			
 			
-				gameover -= 100;
-				x = rand() % 520 + 55;
-				y = rand() % 20 + 500;
-				sdlProperties::BombOne.y = y;
-				sdlProperties::BombOne.x = x;
-				PosYOfBombOne = sdlProperties::BombOne.y;
+			gameVariables::gameover -= 100;
+			gameVariables::x = rand() % 520 + 55;
+			gameVariables::y = rand() % 20 + 500;
+				sdlProperties::BombOne.y = gameVariables::y;
+				sdlProperties::BombOne.x = gameVariables::x;
+				gameVariables::PosYOfBombOne = sdlProperties::BombOne.y;
 			
 			
 				
@@ -580,12 +583,12 @@ void RandomPosOfBombs()
 		}
 		else if (FindCollisionOfBombTwo())
 		{
-			gameover -= 100;
-			x = rand() % 520 + 55;
-			y = rand() % 20 + 500;
-			sdlProperties::BombTwo.y = y;
-			sdlProperties::BombTwo.x = x;
-			PosYOfBombTwo = sdlProperties::BombTwo.y;
+			gameVariables::gameover -= 100;
+			gameVariables::x = rand() % 520 + 55;
+			gameVariables::y = rand() % 20 + 500;
+			sdlProperties::BombTwo.y = gameVariables::y;
+			sdlProperties::BombTwo.x = gameVariables::x;
+			gameVariables::PosYOfBombTwo = sdlProperties::BombTwo.y;
 		}
 		
 		
@@ -601,15 +604,15 @@ void RandomPosOfBombs()
 void MainLoop()
 {
 
-	LeftPosOfDiver = sdlProperties::diver.x;
-	PosOfPoint = sdlProperties::point.y;
-	RightPosOfDiver = sdlProperties::diver.x;
-	PosYOfBombOne = sdlProperties::BombOne.y;
-	PosYOfBombTwo = sdlProperties::BombTwo.y;
-	BubbleLeftY = sdlProperties::bubbleLeft.y;
-	BubbleRightY = sdlProperties::bubbleRight.y;
+	gameVariables::LeftPosOfDiver = sdlProperties::diver.x;
+	gameVariables::PosOfPoint = sdlProperties::point.y;
+	gameVariables::RightPosOfDiver = sdlProperties::diver.x;
+	gameVariables::PosYOfBombOne = sdlProperties::BombOne.y;
+	gameVariables::PosYOfBombTwo = sdlProperties::BombTwo.y;
+	gameVariables::BubbleLeftY = sdlProperties::bubbleLeft.y;
+	gameVariables::BubbleRightY = sdlProperties::bubbleRight.y;
 
-	while (playing)
+	while (gameVariables::playing)
 	{
 
 		SDL_PollEvent(&sdlProperties::SDLevent);
@@ -628,57 +631,57 @@ void MainLoop()
 
 		Rendering();
 
-		PosOfPoint -= DecreasePosOfPoint;
-		PosYOfBombOne -= 0.3;
-		PosYOfBombTwo -= 0.2;
-		BubbleLeftY -= 0.15;
-		BubbleRightY -= 0.08;
-		sdlProperties::bubbleLeft.y = BubbleLeftY;
-		sdlProperties::point.y = PosOfPoint;
-		sdlProperties::BombOne.y = PosYOfBombOne;
-		sdlProperties::BombTwo.y = PosYOfBombTwo;
-		sdlProperties::bubbleRight.y = BubbleRightY;
+		gameVariables::PosOfPoint -= gameVariables::DecreasePosOfPoint;
+		gameVariables::PosYOfBombOne -= 0.3;
+		gameVariables::PosYOfBombTwo -= 0.2;
+		gameVariables::BubbleLeftY -= 0.15;
+		gameVariables::BubbleRightY -= 0.08;
+		sdlProperties::bubbleLeft.y = gameVariables::BubbleLeftY;
+		sdlProperties::point.y = gameVariables::PosOfPoint;
+		sdlProperties::BombOne.y = gameVariables::PosYOfBombOne;
+		sdlProperties::BombTwo.y = gameVariables::PosYOfBombTwo;
+		sdlProperties::bubbleRight.y = gameVariables::BubbleRightY;
 
 
 		if (sdlProperties::bubbleLeft.y < -60)
 		{
-			BubbleLeftY = 500;
+			gameVariables::BubbleLeftY = 500;
 
 		}
 		else if (sdlProperties::bubbleRight.y < -60)
 		{
-			BubbleRightY = 500;
+			gameVariables::BubbleRightY = 500;
 
 		}
 		else if (sdlProperties::BombOne.y < -60)
 		{
-			PosYOfBombOne = 500;
+			gameVariables::PosYOfBombOne = 500;
 		}
 		else if (sdlProperties::BombTwo.y < -60)
 		{
-			PosYOfBombTwo = 500;
+			gameVariables::PosYOfBombTwo = 500;
 		}
 		else if (sdlProperties::diver.x < -10)
 		{
 			sdlProperties::diver.x = 700;
-			LeftPosOfDiver = sdlProperties::diver.x;
-			RightPosOfDiver = sdlProperties::diver.x;
+			gameVariables::LeftPosOfDiver = sdlProperties::diver.x;
+			gameVariables::RightPosOfDiver = sdlProperties::diver.x;
 
 		}
 		else if (sdlProperties::diver.x > 710)
 		{
 			sdlProperties::diver.x = 0;
-			LeftPosOfDiver = sdlProperties::diver.x;
-			RightPosOfDiver = sdlProperties::diver.x;
+			gameVariables::LeftPosOfDiver = sdlProperties::diver.x;
+			gameVariables::RightPosOfDiver = sdlProperties::diver.x;
 		}
 
 		//Find collision and set random position of the point
 		RandomPosOfThePoint();
 		RandomPosOfBombs();
-		gameover -= decreaseScore;
-		UpdateScore(gameover);
+		gameVariables::gameover -= gameVariables::decreaseScore;
+		UpdateScore(gameVariables::gameover);
 		// set Game Over when score is less or equal to 0
-		if (GameOver(gameover) == false)
+		if (GameOver(gameVariables::gameover) == false)
 		{
 			cout << endl << endl << "GAME OVER!! The water pressure was ENORMOUS!! YOU DIED!!" << endl << endl;
 		}
