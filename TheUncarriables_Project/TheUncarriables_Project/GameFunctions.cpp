@@ -48,7 +48,7 @@ namespace gameVariables
 	float y = 0;
 	float DecreasePosOfPoint = 0.25;
 	float x = 0;
-	float IncreaseSpeedOfDiver = 0.5;
+	float IncreaseSpeedOfDiver = 0.3;
 	int counterOfDecrease = 0;
 	float BubbleLeftY;
 	float BubbleRightY;
@@ -653,8 +653,8 @@ void MainLoop()
 		Rendering();
 
 		gameVariables::PosOfPoint -= gameVariables::DecreasePosOfPoint;
-		gameVariables::PosYOfBombOne -= 0.3;
-		gameVariables::PosYOfBombTwo -= 0.2;
+		gameVariables::PosYOfBombOne -= 0.2;
+		gameVariables::PosYOfBombTwo -= 0.1;
 		gameVariables::BubbleLeftY -= 0.15;
 		gameVariables::BubbleRightY -= 0.08;
 		sdlProperties::bubbleLeft.y = gameVariables::BubbleLeftY;
