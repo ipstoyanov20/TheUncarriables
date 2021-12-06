@@ -1,4 +1,6 @@
-# TheUncarriables
+<img src = "https://cdn.discordapp.com/attachments/908296425492856833/917488567415107624/unknown.png">
 
-<a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fipstoyanov20%2FTheUncarriables&count_bg=%2379C83D&title_bg=%239B9B9B&icon=riotgames.svg&icon_color=%23D32B2B&title=Visitors&edge_flat=false"/></a>
+<p><b>Team</b><br>Ivaylo Stoqnov - Scrum Trainer<br>Denislav Bratoevski - QA<br>Ivan Tsrangalov - Back-end developer<br>Hakan Chandar - Back-end developer</p>
 
+<p><b>IMPORTANT!</b></p>
+<p><b>In order to run the game properly, you must extract the .zip file.</b></p>

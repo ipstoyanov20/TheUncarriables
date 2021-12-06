@@ -48,7 +48,11 @@ namespace gameVariables
 	float y = 0;
 	float DecreasePosOfPoint = 0.25;
 	float x = 0;
+<<<<<<< HEAD
 	float IncreaseSpeedOfDiver = 0.3;
+=======
+	float IncreaseSpeedOfDiver = 0.4;
+>>>>>>> 057bbc3a766897fa86877548ad4a65a0d17f62cb
 	int counterOfDecrease = 0;
 	float BubbleLeftY;
 	float BubbleRightY;
@@ -168,19 +172,16 @@ bool GameOver(float gameover)
 
 bool FindCollisionOfPoint()
 {
-	if (((round(sdlProperties::point.y) - round(sdlProperties::diver.y) >= -35) &&
-		(round(sdlProperties::point.y) - round(sdlProperties::diver.y) <= 35) &&
-		(round(sdlProperties::point.x) - round(sdlProperties::diver.x) <= 21) && 
-		(round(sdlProperties::point.x) - round(sdlProperties::diver.x) >= -21)))
+	if (((round(sdlProperties::point.y) - round(sdlProperties::diver.y) >= -24) &&
+		(round(sdlProperties::point.y) - round(sdlProperties::diver.y) <= 24) &&
+		(round(sdlProperties::point.x) - round(sdlProperties::diver.x) <= 27.5) && 
+		(round(sdlProperties::point.x) - round(sdlProperties::diver.x) >= -27.5)))
 	{
 		return true;
 
-		if (round(sdlProperties::point.y) - round(sdlProperties::point.y) == -35 &&
-			round(sdlProperties::point.x) - round(sdlProperties::diver.x) >= -17)
-		{
-			return true;
-		}
+		
 	}
+	
 }
 
 void Rendering()
@@ -485,7 +486,7 @@ void RandomPosOfThePoint()
 	{
 		if (FindCollisionOfPoint())
 		{
-			gameVariables::gameover += 200;
+			gameVariables::gameover += 250;
 			gameVariables::randomquiz++;
 
 			if (gameVariables::randomquiz % 5 == 0)
@@ -518,7 +519,7 @@ void RandomPosOfThePoint()
 				}
 				else 
 				{
-					gameVariables::gameover -= 200;
+					gameVariables::gameover -= 250;
 					Quiz();
 					cout << "Press \'Alt + Tab\' and WAIT to continue playing" << endl;
 					SDL_Delay(4000);
@@ -559,35 +560,26 @@ void RandomPosOfThePoint()
 
 bool FindCollisionOfBombOne() 
 {
-	if (((round(sdlProperties::BombOne.y) - round(sdlProperties::diver.y) >= -35) &&
-		(round(sdlProperties::BombOne.y) - round(sdlProperties::diver.y) <= 35) &&
-		(round(sdlProperties::BombOne.x) - round(sdlProperties::diver.x) <= 20) &&
-		(round(sdlProperties::BombOne.x) - round(sdlProperties::diver.x) >= -20)))
+	if (((round(sdlProperties::BombOne.y) - round(sdlProperties::diver.y) >= -24) &&
+		(round(sdlProperties::BombOne.y) - round(sdlProperties::diver.y) <= 24) &&
+		(round(sdlProperties::BombOne.x) - round(sdlProperties::diver.x) <= 23.5) &&
+		(round(sdlProperties::BombOne.x) - round(sdlProperties::diver.x) >= -23.5)))
 	{
 		return true;
 		
-		if (round(sdlProperties::BombOne.y) - round(sdlProperties::diver.y) == -35 &&
-			round(sdlProperties::BombOne.x) - round(sdlProperties::diver.x) >= -17)
-		{
-			return true;
-		}
 	}
 }
 
 bool FindCollisionOfBombTwo()
 {
-	if (((round(sdlProperties::BombTwo.y) - round(sdlProperties::diver.y) >= -35) &&
-		(round(sdlProperties::BombTwo.y) - round(sdlProperties::diver.y) <= 35) &&
-		(round(sdlProperties::BombTwo.x) - round(sdlProperties::diver.x) <= 20) &&
-		(round(sdlProperties::BombTwo.x) - round(sdlProperties::diver.x) >= -20)))
+	if (((round(sdlProperties::BombTwo.y) - round(sdlProperties::diver.y) >= -25) &&
+		(round(sdlProperties::BombTwo.y) - round(sdlProperties::diver.y) <= 25) &&
+		(round(sdlProperties::BombTwo.x) - round(sdlProperties::diver.x) <= 23.5) &&
+		(round(sdlProperties::BombTwo.x) - round(sdlProperties::diver.x) >= -23.5)))
 	{
 		return true;
 
-		if (round(sdlProperties::BombTwo.y) - round(sdlProperties::diver.y) == -35 &&
-			round(sdlProperties::BombTwo.x) - round(sdlProperties::diver.x) >= -17)
-		{
-			return true;
-		}
+		
 	}
 }
 
