@@ -2,4 +2,5 @@
 
 <p><b>Team</b><br>Ivaylo Stoqnov - Scrum Trainer<br>Denislav Bratoevski - QA<br>Ivan Tsrangalov - Back-end developer<br>Hakan Chandar - Back-end developer</p>
 
-<p><b>You have to extract the .zip file.</b></p>
+<p><b>IMPORTANT!</b></p>
+<p><b>In order to run the game properly, you must extract the .zip file.</b></p>
