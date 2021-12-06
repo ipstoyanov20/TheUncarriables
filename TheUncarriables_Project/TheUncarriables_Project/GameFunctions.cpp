@@ -48,11 +48,8 @@ namespace gameVariables
 	float y = 0;
 	float DecreasePosOfPoint = 0.25;
 	float x = 0;
-<<<<<<< HEAD
 	float IncreaseSpeedOfDiver = 0.3;
-=======
 	float IncreaseSpeedOfDiver = 0.4;
->>>>>>> 057bbc3a766897fa86877548ad4a65a0d17f62cb
 	int counterOfDecrease = 0;
 	float BubbleLeftY;
 	float BubbleRightY;
@@ -71,14 +68,14 @@ namespace gameVariables
 	int ArrayForQuestion[10] = { -1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1 };
 	string arrayOfQuestion[10] = { "In what unit are forces measured?",
 	"When the net force on an object equals 0 Newtons, we know the forces are __?",
-	"Anytime the net force does NOT equal zero, the forces are __",
+	"Anytime the net force does NOT equal zero, the forces are __?",
 	"What is the scientific name for a push or a pull?",
-	"The combination of multiple forces acting on an object is known as",
+	"The combination of multiple forces acting on an object is known as?",
 	"Which type of force creates contact between two surfaces?",
 	"What operation is used to calculate net forces acting in the SAME direction?",
 	"What operation is used to calculate net forces acting in DIFFERENT directions?",
-	"True or false, in physics we measure speed in m/s",
-	"True or false, Forces cannot act on objects from a distance, only through direct contact." };
+	"True or false, in physics we measure speed in m/s?",
+	"True or false, Forces cannot act on objects from a distance, only through direct contact?" };
 }
 
 void CreateWindow()
