@@ -1,11 +1,11 @@
-#include<SDL.h> // include SDL
+#include<SDL.h>
 #include<iostream>
 #include<stdlib.h>
 #include<cmath>
 #include<time.h>
 #include<string>
 #include "../TheUncarriables_Project/GameFunctions.h"
-#include<SDL_image.h> // Here we can use images in SDL
+#include<SDL_image.h>
 #include<SDL_ttf.h>
 using namespace std;
 

@@ -1,11 +1,11 @@
 #pragma once
-#include<SDL.h> // include SDL
+#include<SDL.h>
 #include<iostream>
 #include<stdlib.h>
 #include<cmath>
 #include<time.h>
 #include<string>
-#include<SDL_image.h> // Here we can use images in SDL
+#include<SDL_image.h>
 using namespace std;
 
 
@@ -22,7 +22,6 @@ void SetDiver();
 void SetscoreRect();
 void UpdateScore(float gameover);
 bool GameOver(float gameover);
-bool FindCollision();
 void Quiz();
 void MainLoop();
 void Setting();
