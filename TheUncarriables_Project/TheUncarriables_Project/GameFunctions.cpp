@@ -48,7 +48,6 @@ namespace gameVariables
 	float y = 0;
 	float DecreasePosOfPoint = 0.25;
 	float x = 0;
-	float IncreaseSpeedOfDiver = 0.3;
 	float IncreaseSpeedOfDiver = 0.4;
 	int counterOfDecrease = 0;
 	float BubbleLeftY;
@@ -62,8 +61,6 @@ namespace gameVariables
 	int randomquiz = 0;
 	float PosYOfBombOne;
 	float PosYOfBombTwo;
-	bool BoolOne = false;
-	bool BoolTwo = false;
 	int randomQuestion = 0;
 	int ArrayForQuestion[10] = { -1, -1, -1, -1, -1, -1, -1, -1, -1 ,-1 };
 	string arrayOfQuestion[10] = { "In what unit are forces measured?",
